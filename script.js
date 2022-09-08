@@ -1,6 +1,7 @@
 const squares = document.getElementsByClassName("square");
 var turn = true;
 var over = false;
+var counter = 0;
 
 //clicking squares marks them with the corresponding player mark
 for (let i = 0; i < squares.length; i++) {
@@ -13,10 +14,12 @@ for (let i = 0; i < squares.length; i++) {
     }
     if (turn) {
       squares[i].innerHTML = "X";
+      counter++;
       checkWin();
       turn = !turn;
     } else {
       squares[i].innerHTML = "O";
+      counter++;
       checkWin();
       turn = !turn;
     }
@@ -28,10 +31,14 @@ document.getElementById("restart").addEventListener("click", function () {
   location.reload();
 });
 
-//checks all win conditions and outputs a win screen if a player wins
+//checks all win conditions
 function checkWin() {
   var winner = "";
 
+  if (counter == 9) {
+    over = true;
+    winner = "Draw!";
+  }
   //checks if their is three of the same marks in a row
   if (
     squares[0].textContent == squares[1].textContent &&
@@ -41,7 +48,7 @@ function checkWin() {
     squares[0].style.background = "#66ff99";
     squares[1].style.background = "#66ff99";
     squares[2].style.background = "#66ff99";
-    winner = squares[0].textContent;
+    winner = squares[0].textContent + "Wins!";
     over = true;
   } else if (
     squares[3].textContent == squares[4].textContent &&
@@ -51,7 +58,7 @@ function checkWin() {
     squares[3].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[5].style.background = "#66ff99";
-    winner = squares[3].textContent;
+    winner = squares[3].textContent + "Wins!";
     over = true;
   } else if (
     squares[6].textContent == squares[7].textContent &&
@@ -61,7 +68,7 @@ function checkWin() {
     squares[6].style.background = "#66ff99";
     squares[7].style.background = "#66ff99";
     squares[8].style.background = "#66ff99";
-    winner = squares[6].textContent;
+    winner = squares[6].textContent + "Wins!";
     over = true;
   } else if (
     squares[0].textContent == squares[3].textContent &&
@@ -71,7 +78,7 @@ function checkWin() {
     squares[0].style.background = "#66ff99";
     squares[3].style.background = "#66ff99";
     squares[6].style.background = "#66ff99";
-    winner = squares[0].textContent;
+    winner = squares[0].textContent + "Wins!";
     over = true;
   } else if (
     squares[1].textContent == squares[4].textContent &&
@@ -81,7 +88,7 @@ function checkWin() {
     squares[1].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[7].style.background = "#66ff99";
-    winner = squares[1].textContent;
+    winner = squares[1].textContent + "Wins!";
     over = true;
   } else if (
     squares[2].textContent == squares[5].textContent &&
@@ -91,7 +98,7 @@ function checkWin() {
     squares[5].style.background = "#66ff99";
     squares[8].style.background = "#66ff99";
     squares[2].style.background = "#66ff99";
-    winner = squares[5].textContent;
+    winner = squares[5].textContent + "Wins!";
     over = true;
   } else if (
     squares[0].textContent == squares[4].textContent &&
@@ -101,7 +108,7 @@ function checkWin() {
     squares[0].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[8].style.background = "#66ff99";
-    winner = squares[0].textContent;
+    winner = squares[0].textContent + "Wins!";
     over = true;
   } else if (
     squares[2].textContent == squares[4].textContent &&
@@ -111,13 +118,16 @@ function checkWin() {
     squares[2].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[6].style.background = "#66ff99";
-    winner = squares[2].textContent;
+    winner = squares[2].textContent + "Wins!";
     over = true;
   }
+  display(winner);
+}
 
-  //displays the win screen for the corresponding mark
+function display(message) {
+  //displays the win/draw screen for the corresponding mark
   if (over) {
     document.getElementById("winning-message").style.display = "flex";
-    document.getElementById("message").textContent = winner + " Wins!";
+    document.getElementById("message").textContent = message;
   }
 }
