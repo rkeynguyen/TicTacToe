@@ -48,7 +48,7 @@ function checkWin() {
     squares[0].style.background = "#66ff99";
     squares[1].style.background = "#66ff99";
     squares[2].style.background = "#66ff99";
-    winner = squares[0].textContent + "Wins!";
+    winner = squares[0].textContent + " Wins!";
     over = true;
   } else if (
     squares[3].textContent == squares[4].textContent &&
@@ -58,7 +58,7 @@ function checkWin() {
     squares[3].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[5].style.background = "#66ff99";
-    winner = squares[3].textContent + "Wins!";
+    winner = squares[3].textContent + " Wins!";
     over = true;
   } else if (
     squares[6].textContent == squares[7].textContent &&
@@ -68,7 +68,7 @@ function checkWin() {
     squares[6].style.background = "#66ff99";
     squares[7].style.background = "#66ff99";
     squares[8].style.background = "#66ff99";
-    winner = squares[6].textContent + "Wins!";
+    winner = squares[6].textContent + " Wins!";
     over = true;
   } else if (
     squares[0].textContent == squares[3].textContent &&
@@ -78,7 +78,7 @@ function checkWin() {
     squares[0].style.background = "#66ff99";
     squares[3].style.background = "#66ff99";
     squares[6].style.background = "#66ff99";
-    winner = squares[0].textContent + "Wins!";
+    winner = squares[0].textContent + " Wins!";
     over = true;
   } else if (
     squares[1].textContent == squares[4].textContent &&
@@ -88,7 +88,7 @@ function checkWin() {
     squares[1].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[7].style.background = "#66ff99";
-    winner = squares[1].textContent + "Wins!";
+    winner = squares[1].textContent + " Wins!";
     over = true;
   } else if (
     squares[2].textContent == squares[5].textContent &&
@@ -98,7 +98,7 @@ function checkWin() {
     squares[5].style.background = "#66ff99";
     squares[8].style.background = "#66ff99";
     squares[2].style.background = "#66ff99";
-    winner = squares[5].textContent + "Wins!";
+    winner = squares[5].textContent + " Wins!";
     over = true;
   } else if (
     squares[0].textContent == squares[4].textContent &&
@@ -108,7 +108,7 @@ function checkWin() {
     squares[0].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[8].style.background = "#66ff99";
-    winner = squares[0].textContent + "Wins!";
+    winner = squares[0].textContent + " Wins!";
     over = true;
   } else if (
     squares[2].textContent == squares[4].textContent &&
@@ -118,7 +118,7 @@ function checkWin() {
     squares[2].style.background = "#66ff99";
     squares[4].style.background = "#66ff99";
     squares[6].style.background = "#66ff99";
-    winner = squares[2].textContent + "Wins!";
+    winner = squares[2].textContent + " Wins!";
     over = true;
   }
   display(winner);
